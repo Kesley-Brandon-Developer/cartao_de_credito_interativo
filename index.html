@@ -5,33 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartão de crédito Interativo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../cartao_de_credito_interativo/css/reset.css">
+    <link rel="stylesheet" href="../cartao_de_credito_interativo/css/style.css">
+    <link rel="stylesheet" href="../cartao_de_credito_interativo/css/config.css">
 </head>
 <body>
     <main>
-        <div class="container">
-        <div class="img-front-card">
-            <img src="images/bg-card-front.png" alt="Front Card">
-            <!-- <img src="images/card-logo.svg" alt="Logo"> -->
-
-            <div class="card-info">
-                <div class="number-card">
-                    <label id="number-img">0000 0000 0000 0000</label>
+        <div class="container-card">
+            <section class="card-back">
+                <span class="cvc-info" id="cvc-card">000</span>
+            </section>
+            <section class="card-front">
+                <img src="images/card-logo.svg" class="card-logo" alt="Logo">
+                <div class="info-numb-card">
+                    <span class="numb-card" id="numb">0000 0000 0000 0000</span>
+                    <div class="info-card">
+                        <span class="card-name">Nome aqui</span>
+                        <div class="card-data">
+                            <span class="card-month">00</span>
+                            <span class="card-bar">/</span>
+                            <span class="card-year">00</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="info-name">
-                <label class="name-card" id="name-img">Jane Appleseed</label>
-                <label id="month-card">00</label>/<label id="year-card">00</label>
-            </div>
+            </section>
         </div>
-        <div>
-            <img class="img-card-back" src="images/bg-card-back.png" alt="Back Card">
-            <div class="code-card">
-                <label class="cvc-code">000</label>
+        <section class="form-container">
+            <span class="title-form">cardholder name</span>
+            <input type="text" class="input-data" oninput="printName(this.value)" placeholder="e.g Jane Appleseed">
+            <span class="cant-be">Can't be blank</span>
+            <span class="title-form">card number</span>
+            <input type="text" class="input-data" oninput="maskCard(this), printNumber(this.value)" placeholder="e.g 1234 5678 9123 000">
+            <span class="cant-be">Cant'be blank</span>
+            <div class="final-data">
+                <span class="final-data exp-text">Exp.Date</span>
+                <span class="final-data">(mm/yy)</span>
+                <span class="final-data">CVC</span>
+                <input type="text" class="final-input exp-text" oninput="printMonth(this.value)" placeholder="MM" maxlength="2" onkeypress="return event.charcode > 48 && event.charcode <= 57">
+                <span class="cant-be month-cant-be month">Can't be blank</span>
+                <input type="text" class="final-input" oninput="printYear(this.value)" placeholder="YY" maxlength="2" onkeypress="return event.charcode >= 48 && event.charcode <= 57">
+                <span class="cant-be">Can't be blank</span>
+                <input type="text" class="final-input" oninput="printCvc(this.value)" placeholder="CVC" maxlength="3" onkeypress="return event.charcode >= 48 && event.charcode <= 57">
+                <span class="cant-be">Can't be blank</span>
             </div>
-        </div>
-        </div>
+            <button class="btn-confirm">Confirm</button>
+        </section>
     </main>
 </body>
 </html>
