@@ -45,10 +45,18 @@
                 <span class="cant-be month-cant-be month">Can't be blank</span>
                 <input type="text" class="final-input" oninput="printYear(this.value)" placeholder="YY" maxlength="2" onkeypress="return event.charcode >= 48 && event.charcode <= 57">
                 <span class="cant-be">Can't be blank</span>
-                <input type="text" class="final-input" oninput="printCvc(this.value)" placeholder="CVC" maxlength="3" onkeypress="return event.charcode >= 48 && event.charcode <= 57">
-                <span class="cant-be">Can't be blank</span>
+                <input type="text" class="final-input cvc " oninput="printCvc(this.value)" placeholder="CVC" maxlength="3" onkeypress="return event.charcode >= 48 && event.charcode <= 57">
+                <span class="cant-be cvc-cant-be">Can't be blank</span>
             </div>
             <button class="btn-confirm">Confirm</button>
+        </section>
+        <section class="thx__container">
+            <div class="thx__content">
+                <img src="assets/img/icon-complete.svg" class="thx__img">
+                <span class="thx">Thank you!</span>
+                <span class="thx__text">We've added your card details</span>
+            </div>
+            <button class="btn-continue-thx" id="btn_continue_thx">Continue</button>
         </section>
     </main>
 </body>
